@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insta Task Loot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #e0f7ff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .task-box {
+      background: white;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0077b6;
+    }
+    button {
+      background: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button.enabled {
+      background: #4CAF50;
+      color: white;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .instagram-link {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background-color: #E1306C;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    #withdrawMessage, #codeMessage {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Insta Task Loot</h1>
+
+    <div class="task-box">
+      <h2>Task 1: Enter Code</h2>
+      <form onsubmit="event.preventDefault(); checkCode();">
+        <input type="text" id="codeInput" placeholder="Enter code here" />
+        <button type="submit">Submit Code</button>
+        <p id="codeMessage"></p>
+      </form>
+    </div>
+
+    <div class="task-box">
+      <h2>Task 2: Share on WhatsApp</h2>
+      <p>Click the button below to share our Instagram link on WhatsApp.</p>
+      <a href="https://wa.me/?text=Follow%20this%20awesome%20Instagram%20account:%20https://www.instagram.com/raj_vip_40?igsh=MW0yZmJ5b2J4d2VpMQ==&utm_source=ig_contact_invite" target="_blank">
+        <button style="background-color:#25D366;color:white;">📤 Share on WhatsApp</button>
+      </a>
+    </div>
+
+    <div class="task-box">
+      <h2>Task 3: Follow on Instagram</h2>
+      <a class="instagram-link" href="https://www.instagram.com/raj_vip_40?igsh=MW0yZmJ5b2J4d2VpMQ==&utm_source=ig_contact_invite" target="_blank">Follow @raj_vip_40</a>
+    </div>
+
+    <div class="task-box">
+      <h2>Task 4: Deposit ₹199</h2>
+      <p>Use UPI app to send ₹199:</p>
+      <a href="upi://pay?pa=harshitapanwarr@axl&pn=Insta+Earn&am=199&cu=INR">
+        <button style="background-color:#3b5998;color:white;">📱 PhonePe: harshitapanwarr@axl</button>
+      </a><br><br>
+      <a href="upi://pay?pa=nayrafilings@freecharge&pn=Insta+Earn&am=199&cu=INR">
+        <button style="background-color:#002970;color:white;">💵 Paytm: nayrafilings@freecharge</button>
+      </a><br><br>
+    </div>
+
+    <div class="task-box">
+      <h2>Task 5: Withdrawal</h2>
+      <p style="color:red; font-weight:bold;">
+        ₹199 payment ke baad hi withdrawal karein. Agar payment nahi kiya to request reject ho sakti hai.
+      </p>
+      <form onsubmit="event.preventDefault(); showWithdrawStatus();">
+        <input type="text" placeholder="Holder Name" required />
+        <input type="text" placeholder="Account Number" required />
+        <button id="withdrawBtn" type="submit" class="enabled">Withdraw ₹3000</button>
+        <p id="withdrawMessage"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function checkCode() {
+      const code = document.getElementById("codeInput").value.trim();
+      const msg = document.getElementById("codeMessage");
+      if (code.toUpperCase() === "MM90TH") {
+        msg.style.color = "green";
+        msg.textContent = "Code verified successfully!";
+      } else {
+        msg.textContent = "";
+      }
+    }
+
+    function showWithdrawStatus() {
+      const message = document.getElementById("withdrawMessage");
+      message.style.color = "#333";
+      message.textContent = "Withdrawal request submitted...";
+      setTimeout(() => {
+        message.style.color = "orange";
+        message.textContent = "₹3000 withdrawal is now pending verification.";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
